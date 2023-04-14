@@ -57,3 +57,202 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  BAT_LVL,  NK_TOGG,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS,
      KC_TRNS,  KC_TRNS,  KC_TRNS,                                KC_TRNS,                                KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS)
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_F1:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 1
+                register_code(KC_1);
+                unregister_code(KC_1);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F2:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_2);
+                unregister_code(KC_2);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F3:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_3);
+                unregister_code(KC_3);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F4:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_4);
+                unregister_code(KC_4);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F5:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_5);
+                unregister_code(KC_5);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F6:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_6);
+                unregister_code(KC_6);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F7:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_7);
+                unregister_code(KC_7);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F8:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_8);
+                unregister_code(KC_8);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F9:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_9);
+                unregister_code(KC_9);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        case KC_F11:
+            if (record->event.pressed) {
+                // Press and hold KC_LSFT
+                register_code(KC_LSFT);
+
+                // Press and hold KC_TRNS
+                register_code(KC_TRNS);
+
+                // Press 2
+                register_code(KC_0);
+                unregister_code(KC_0);
+
+                // Release KC_LSFT and KC_TRNS
+                unregister_code(KC_LSFT);
+                unregister_code(KC_TRNS);
+
+                return false; // Skip the normal key handling
+            }
+            break;
+        // add cases for other function keys and numeric keys here
+    }
+
+    // Continue with normal key handling
+    return true;
+}
