@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MAC_BASE] = LAYOUT_ansi_84(
      KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LNPD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_SNAP,  KC_DEL,   KC_PENT,
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,            KC_PGUP,
-     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,            KC_PGDN,
+      LCTL(KC_I),   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,            KC_PGDN,
      KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,            KC_ENT,             KC_HOME,
      KC_LSFT,            KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,            KC_RSFT,  KC_UP,    KC_END,
      KC_LCTL,  KC_LOPTN, KC_LCMMD,                               KC_SPC,                                 KC_RCMMD,MO(MAC_FN),KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
@@ -57,36 +57,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  BAT_LVL,  NK_TOGG,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS,
      KC_TRNS,  KC_TRNS,  KC_TRNS,                                KC_TRNS,                                KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS)
 };
-
-
-#ifdef AUDIO_ENABLE
-float leader_start_song[][2] = SONG(ONE_UP_SOUND);
-float leader_succeed_song[][2] = SONG(ALL_STAR);
-float leader_fail_song[][2] = SONG(RICK_ROLL);
-#endif
-
-void leader_start_user(void) {
-#ifdef AUDIO_ENABLE
-    PLAY_SONG(leader_start_song);
-#endif
-}
-
-void leader_end_user(void) {
-    bool did_leader_succeed = false;
-
-    if (leader_sequence_one_key(KC_E)) {
-        SEND_STRING(SS_LCTL(SS_LSFT("t")));
-        did_leader_succeed = true;
-    } else if (leader_sequence_two_keys(KC_E, KC_D)) {
-        SEND_STRING(SS_LGUI("r") "cmd\n" SS_LCTL("c"));
-        did_leader_succeed = true;
-    }
-
-#ifdef AUDIO_ENABLE
-    if (did_leader_succeed) {
-        PLAY_SONG(leader_succeed_song);
-    } else {
-        PLAY_SONG(leader_fail_song);
-    }
-#endif
-}
